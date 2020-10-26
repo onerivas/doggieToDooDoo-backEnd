@@ -29,6 +29,8 @@ mongoose.connection.on('disconnected', () => console.log('mongo disconnected'))
 app.use(cors());
 app.use(express.json())
 
+const petsController = require('./controllers/petsController.js');
+app.use('/pets', petsController)
 const todoController = require('./controllers/todoController.js');
 app.use('/todos', todoController)
 
