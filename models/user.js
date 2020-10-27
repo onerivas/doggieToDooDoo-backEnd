@@ -1,11 +1,13 @@
 const mongoose = require('mongoose');
 const bcrypt = require('bcrypt');
+const Pets = require('../models/pet.js')
 
 const userSchema = new mongoose.Schema({
   email: {type: String, required: true, unique: true},
   password: {
     type: String, required: true
-  }
+  },
+  pets: [Pet.schema]
 });
 
 userSchema.pre(
