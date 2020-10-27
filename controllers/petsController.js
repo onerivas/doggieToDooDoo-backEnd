@@ -21,15 +21,15 @@ pet.post('/', (req, res) => {
     })
   })
 })
-pet.post('/todos', (req, res) => {
-  Todo.create(req.body, (err, createdTodo) => {
-    Pet.findById(req.body.Pet_id, (err, foundPet) => {
-      foundPet.todos.push(createdTodo);
-      foundPet.save();
-      res.json(foundPet);
-    })
-  })
-})
+// pet.post('/todos', (req, res) => {
+//   Todo.create(req.body, (err, createdTodo) => {
+//     Pet.findById(req.body.Pet_id, (err, foundPet) => {
+//       foundPet.todos.push(createdTodo);
+//       foundPet.save();
+//       res.json(foundPet);
+//     })
+//   })
+// })
 pet.post('/:id', (req, res) => {
   Pet.findByIdAndUpdate(req.params.id, req.body, {new:true}, (err, updatedPet) => {
     if (err) {
