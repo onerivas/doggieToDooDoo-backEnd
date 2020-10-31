@@ -6,7 +6,7 @@ const Todo = require('../models/todo.js')
 
 pet.get('/', (req, res) => {
   console.log(req.query);
-  Pet.find({}, (err, foundPets) => {
+  Pet.find({user:req.query}, (err, foundPets) => {
     res.json(foundPets)
   })
 })
